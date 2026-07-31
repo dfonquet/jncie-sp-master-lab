@@ -1,0 +1,23 @@
+name: jncie-sp-dual-canary
+
+mgmt:
+  network: jncie-sp-dual-canary-mgmt
+  ipv4-subnet: 10.204.254.0/24
+
+topology:
+  defaults:
+    kind: juniper_vmx
+    image: vrnetlab/vr-vmx:21.3R1.9-prepared
+
+  nodes:
+    VMX1:
+      mgmt-ipv4: 10.204.254.101
+      startup-config: configs/VMX1.set
+      startup-delay: 0
+    VMX2:
+      mgmt-ipv4: 10.204.254.102
+      startup-config: configs/VMX2.set
+      startup-delay: 45
+
+  links:
+    - endpoints: ["VMX1:eth1", "VMX2:eth1"]

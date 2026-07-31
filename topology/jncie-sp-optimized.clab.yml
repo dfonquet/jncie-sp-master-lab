@@ -1,0 +1,78 @@
+name: jncie-sp-optimized
+
+mgmt:
+  network: jncie-sp-optimized-mgmt
+  ipv4-subnet: 10.204.252.0/24
+
+topology:
+  defaults:
+    kind: juniper_vmx
+    image: vrnetlab/vr-vmx:21.3R1.9-prepared
+
+  nodes:
+    P1:
+      mgmt-ipv4: 10.204.252.101
+      startup-config: ../configs/optimized/P1.set
+      startup-delay: 0
+    P2:
+      mgmt-ipv4: 10.204.252.102
+      startup-config: ../configs/optimized/P2.set
+      startup-delay: 60
+    P3:
+      mgmt-ipv4: 10.204.252.103
+      startup-config: ../configs/optimized/P3.set
+      startup-delay: 120
+    P4:
+      mgmt-ipv4: 10.204.252.104
+      startup-config: ../configs/optimized/P4.set
+      startup-delay: 180
+    PE1:
+      mgmt-ipv4: 10.204.252.111
+      startup-config: ../configs/optimized/PE1.set
+      startup-delay: 240
+    PE2:
+      mgmt-ipv4: 10.204.252.112
+      startup-config: ../configs/optimized/PE2.set
+      startup-delay: 300
+    PE3:
+      mgmt-ipv4: 10.204.252.113
+      startup-config: ../configs/optimized/PE3.set
+      startup-delay: 360
+    PE4:
+      mgmt-ipv4: 10.204.252.114
+      startup-config: ../configs/optimized/PE4.set
+      startup-delay: 420
+    RR1:
+      mgmt-ipv4: 10.204.252.121
+      startup-config: ../configs/optimized/RR1.set
+      startup-delay: 480
+    RR2:
+      mgmt-ipv4: 10.204.252.122
+      startup-config: ../configs/optimized/RR2.set
+      startup-delay: 540
+    AUTO1:
+      kind: linux
+      image: jncie-sp-automation:1.0
+      mgmt-ipv4: 10.204.252.10
+      binds:
+        - ../:/workspace/jncie-sp-master
+
+  links:
+    - endpoints: ["P1:eth1", "P2:eth1"]
+    - endpoints: ["P2:eth2", "P3:eth1"]
+    - endpoints: ["P3:eth2", "P4:eth1"]
+    - endpoints: ["P4:eth2", "P1:eth2"]
+    - endpoints: ["P1:eth3", "P3:eth3"]
+    - endpoints: ["P2:eth3", "P4:eth3"]
+    - endpoints: ["PE1:eth1", "P1:eth4"]
+    - endpoints: ["PE1:eth2", "P2:eth4"]
+    - endpoints: ["PE2:eth1", "P2:eth5"]
+    - endpoints: ["PE2:eth2", "P3:eth4"]
+    - endpoints: ["PE3:eth1", "P3:eth5"]
+    - endpoints: ["PE3:eth2", "P4:eth4"]
+    - endpoints: ["PE4:eth1", "P4:eth5"]
+    - endpoints: ["PE4:eth2", "P1:eth5"]
+    - endpoints: ["RR1:eth1", "P1:eth6"]
+    - endpoints: ["RR1:eth2", "P3:eth6"]
+    - endpoints: ["RR2:eth1", "P2:eth6"]
+    - endpoints: ["RR2:eth2", "P4:eth6"]

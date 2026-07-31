@@ -1,0 +1,6 @@
+ansible-core==2.19.1
+jmespath==1.0.1
+junos-eznc==2.7.4
+ncclient==0.6.15
+netmiko==4.6.0
+PyYAML==6.0.2

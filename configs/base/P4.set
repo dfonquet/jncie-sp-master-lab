@@ -1,0 +1,52 @@
+set system host-name P4
+set routing-options router-id 10.255.0.4
+set interfaces lo0 unit 0 description "P ROUTER-ID"
+set interfaces lo0 unit 0 family inet address 10.255.0.4/32
+set interfaces lo0 unit 0 family inet6 address 2001:db8:500:abcd::4/128
+set interfaces lo0 unit 0 family iso address 49.0001.0000.0000.0004.00
+set protocols isis level 1 disable
+set protocols isis level 2 wide-metrics-only
+set protocols isis topologies ipv6-unicast
+set protocols isis interface lo0.0 passive
+set interfaces ge-0/0/1 description "CORE-RING -> P3"
+set interfaces ge-0/0/1 unit 0 family inet address 10.0.3.1/31
+set interfaces ge-0/0/1 unit 0 family inet6 address 2001:db8:1000:3::1/127
+set interfaces ge-0/0/1 unit 0 family iso
+set protocols isis interface ge-0/0/1.0 point-to-point
+set protocols isis interface ge-0/0/1.0 level 2 metric 10
+set protocols isis interface ge-0/0/1.0 level 2 ipv6-unicast metric 10
+set interfaces ge-0/0/2 description "CORE-RING -> P5"
+set interfaces ge-0/0/2 unit 0 family inet address 10.0.4.0/31
+set interfaces ge-0/0/2 unit 0 family inet6 address 2001:db8:1000:4::/127
+set interfaces ge-0/0/2 unit 0 family iso
+set protocols isis interface ge-0/0/2.0 point-to-point
+set protocols isis interface ge-0/0/2.0 level 2 metric 10
+set protocols isis interface ge-0/0/2.0 level 2 ipv6-unicast metric 10
+set interfaces ge-0/0/3 description "CORE-CHORD -> P1"
+set interfaces ge-0/0/3 unit 0 family inet address 10.0.7.1/31
+set interfaces ge-0/0/3 unit 0 family inet6 address 2001:db8:1000:7::1/127
+set interfaces ge-0/0/3 unit 0 family iso
+set protocols isis interface ge-0/0/3.0 point-to-point
+set protocols isis interface ge-0/0/3.0 level 2 metric 20
+set protocols isis interface ge-0/0/3.0 level 2 ipv6-unicast metric 20
+set interfaces ge-0/0/4 description "PE-UPLINK -> PE3"
+set interfaces ge-0/0/4 unit 0 family inet address 10.0.15.1/31
+set interfaces ge-0/0/4 unit 0 family inet6 address 2001:db8:1000:15::1/127
+set interfaces ge-0/0/4 unit 0 family iso
+set protocols isis interface ge-0/0/4.0 point-to-point
+set protocols isis interface ge-0/0/4.0 level 2 metric 10
+set protocols isis interface ge-0/0/4.0 level 2 ipv6-unicast metric 10
+set interfaces ge-0/0/5 description "PE-UPLINK -> PE4"
+set interfaces ge-0/0/5 unit 0 family inet address 10.0.16.1/31
+set interfaces ge-0/0/5 unit 0 family inet6 address 2001:db8:1000:16::1/127
+set interfaces ge-0/0/5 unit 0 family iso
+set protocols isis interface ge-0/0/5.0 point-to-point
+set protocols isis interface ge-0/0/5.0 level 2 metric 10
+set protocols isis interface ge-0/0/5.0 level 2 ipv6-unicast metric 10
+set interfaces ge-0/0/6 description "RR-UPLINK -> RR1"
+set interfaces ge-0/0/6 unit 0 family inet address 10.0.23.1/31
+set interfaces ge-0/0/6 unit 0 family inet6 address 2001:db8:1000:23::1/127
+set interfaces ge-0/0/6 unit 0 family iso
+set protocols isis interface ge-0/0/6.0 point-to-point
+set protocols isis interface ge-0/0/6.0 level 2 metric 10
+set protocols isis interface ge-0/0/6.0 level 2 ipv6-unicast metric 10

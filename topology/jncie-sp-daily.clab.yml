@@ -1,0 +1,65 @@
+name: jncie-sp-daily
+
+mgmt:
+  network: jncie-sp-daily-mgmt
+  ipv4-subnet: 10.204.251.0/24
+
+topology:
+  defaults:
+    kind: juniper_vmx
+    image: vrnetlab/vr-vmx:21.3R1.9-prepared
+
+  nodes:
+    P1:
+      mgmt-ipv4: 10.204.251.101
+      startup-config: ../configs/daily/P1.set
+      startup-delay: 0
+    P2:
+      mgmt-ipv4: 10.204.251.102
+      startup-config: ../configs/daily/P2.set
+      startup-delay: 60
+    P3:
+      mgmt-ipv4: 10.204.251.103
+      startup-config: ../configs/daily/P3.set
+      startup-delay: 120
+    PE1:
+      mgmt-ipv4: 10.204.251.111
+      startup-config: ../configs/daily/PE1.set
+      startup-delay: 180
+    PE2:
+      mgmt-ipv4: 10.204.251.112
+      startup-config: ../configs/daily/PE2.set
+      startup-delay: 240
+    PE3:
+      mgmt-ipv4: 10.204.251.113
+      startup-config: ../configs/daily/PE3.set
+      startup-delay: 300
+    RR1:
+      mgmt-ipv4: 10.204.251.121
+      startup-config: ../configs/daily/RR1.set
+      startup-delay: 360
+    RR2:
+      mgmt-ipv4: 10.204.251.122
+      startup-config: ../configs/daily/RR2.set
+      startup-delay: 420
+    AUTO1:
+      kind: linux
+      image: jncie-sp-automation:1.0
+      mgmt-ipv4: 10.204.251.10
+      binds:
+        - ../:/workspace/jncie-sp-master
+
+  links:
+    - endpoints: ["P1:eth1", "P2:eth1"]
+    - endpoints: ["P2:eth2", "P3:eth1"]
+    - endpoints: ["P3:eth2", "P1:eth2"]
+    - endpoints: ["PE1:eth1", "P1:eth3"]
+    - endpoints: ["PE1:eth2", "P2:eth3"]
+    - endpoints: ["PE2:eth1", "P2:eth4"]
+    - endpoints: ["PE2:eth2", "P3:eth3"]
+    - endpoints: ["PE3:eth1", "P3:eth4"]
+    - endpoints: ["PE3:eth2", "P1:eth4"]
+    - endpoints: ["RR1:eth1", "P1:eth5"]
+    - endpoints: ["RR1:eth2", "P3:eth5"]
+    - endpoints: ["RR2:eth1", "P2:eth5"]
+    - endpoints: ["RR2:eth2", "P3:eth6"]

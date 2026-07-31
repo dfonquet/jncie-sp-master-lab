@@ -1,0 +1,95 @@
+name: jncie-sp-master
+
+mgmt:
+  network: jncie-sp-master-mgmt
+  ipv4-subnet: 10.204.253.0/24
+
+topology:
+  defaults:
+    kind: juniper_vmx
+    image: vrnetlab/vr-vmx:21.3R1.9-prepared
+
+  nodes:
+    P1:
+      mgmt-ipv4: 10.204.253.101
+      startup-config: ../configs/base/P1.set
+      startup-delay: 0
+    P2:
+      mgmt-ipv4: 10.204.253.102
+      startup-config: ../configs/base/P2.set
+      startup-delay: 45
+    P3:
+      mgmt-ipv4: 10.204.253.103
+      startup-config: ../configs/base/P3.set
+      startup-delay: 90
+    P4:
+      mgmt-ipv4: 10.204.253.104
+      startup-config: ../configs/base/P4.set
+      startup-delay: 135
+    P5:
+      mgmt-ipv4: 10.204.253.105
+      startup-config: ../configs/base/P5.set
+      startup-delay: 180
+    P6:
+      mgmt-ipv4: 10.204.253.106
+      startup-config: ../configs/base/P6.set
+      startup-delay: 225
+    PE1:
+      mgmt-ipv4: 10.204.253.111
+      startup-config: ../configs/base/PE1.set
+      startup-delay: 270
+    PE2:
+      mgmt-ipv4: 10.204.253.112
+      startup-config: ../configs/base/PE2.set
+      startup-delay: 315
+    PE3:
+      mgmt-ipv4: 10.204.253.113
+      startup-config: ../configs/base/PE3.set
+      startup-delay: 360
+    PE4:
+      mgmt-ipv4: 10.204.253.114
+      startup-config: ../configs/base/PE4.set
+      startup-delay: 405
+    PE5:
+      mgmt-ipv4: 10.204.253.115
+      startup-config: ../configs/base/PE5.set
+      startup-delay: 450
+    PE6:
+      mgmt-ipv4: 10.204.253.116
+      startup-config: ../configs/base/PE6.set
+      startup-delay: 495
+    RR1:
+      mgmt-ipv4: 10.204.253.121
+      startup-config: ../configs/base/RR1.set
+      startup-delay: 540
+    RR2:
+      mgmt-ipv4: 10.204.253.122
+      startup-config: ../configs/base/RR2.set
+      startup-delay: 585
+
+  links:
+    - endpoints: ["P1:eth1", "P2:eth1"]
+    - endpoints: ["P2:eth2", "P3:eth1"]
+    - endpoints: ["P3:eth2", "P4:eth1"]
+    - endpoints: ["P4:eth2", "P5:eth1"]
+    - endpoints: ["P5:eth2", "P6:eth1"]
+    - endpoints: ["P6:eth2", "P1:eth2"]
+    - endpoints: ["P1:eth3", "P4:eth3"]
+    - endpoints: ["P2:eth3", "P5:eth3"]
+    - endpoints: ["P3:eth3", "P6:eth3"]
+    - endpoints: ["PE1:eth1", "P1:eth4"]
+    - endpoints: ["PE1:eth2", "P2:eth4"]
+    - endpoints: ["PE2:eth1", "P2:eth5"]
+    - endpoints: ["PE2:eth2", "P3:eth4"]
+    - endpoints: ["PE3:eth1", "P3:eth5"]
+    - endpoints: ["PE3:eth2", "P4:eth4"]
+    - endpoints: ["PE4:eth1", "P4:eth5"]
+    - endpoints: ["PE4:eth2", "P5:eth4"]
+    - endpoints: ["PE5:eth1", "P5:eth5"]
+    - endpoints: ["PE5:eth2", "P6:eth4"]
+    - endpoints: ["PE6:eth1", "P6:eth5"]
+    - endpoints: ["PE6:eth2", "P1:eth5"]
+    - endpoints: ["RR1:eth1", "P1:eth6"]
+    - endpoints: ["RR1:eth2", "P4:eth6"]
+    - endpoints: ["RR2:eth1", "P3:eth6"]
+    - endpoints: ["RR2:eth2", "P6:eth6"]

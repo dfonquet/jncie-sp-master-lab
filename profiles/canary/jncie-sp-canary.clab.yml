@@ -1,0 +1,14 @@
+name: jncie-sp-canary
+
+mgmt:
+  network: jncie-sp-canary-mgmt
+  ipv4-subnet: 10.204.255.0/24
+
+topology:
+  defaults:
+    kind: juniper_vmx
+    image: vrnetlab/vr-vmx:21.3R1.9-prepared
+
+  nodes:
+    VMX1:
+      mgmt-ipv4: 10.204.255.101
