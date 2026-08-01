@@ -23,9 +23,10 @@ def main() -> int:
             path = (document.parent / target.split("#", 1)[0]).resolve()
             if not path.exists(): errors.append(f"{document.relative_to(ROOT)}: broken link {target}")
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    normalized_readme = readme.replace("`", "")
     for profile in PROFILES.values():
         expected = f"| {profile.name} | {profile.expected_routers} |"
-        if expected not in readme: errors.append(f"README: profile count missing for {profile.name}")
+        if expected not in normalized_readme: errors.append(f"README: profile count missing for {profile.name}")
     if errors:
         print("\n".join(f"FAIL: {error}" for error in errors)); return 1
     print(f"PASS documentation: {len(list(ROOT.rglob('*.md')))} Markdown files, local links and profile facts")
