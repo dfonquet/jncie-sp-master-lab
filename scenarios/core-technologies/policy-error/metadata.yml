@@ -1,0 +1,12 @@
+id: CORE-POLICY-001
+title: Correct an import and export policy defect
+domain: Core Technologies
+objectives: [routing policy]
+difficulty: foundational
+estimated_minutes: 35
+profile: daily
+baseline: isis
+logical_roles: [Customer A]
+prerequisites: [BGP]
+status: Implemented
+runtime_validated: false

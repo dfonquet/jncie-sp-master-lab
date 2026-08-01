@@ -2,6 +2,16 @@
 .env.*
 .venv/
 artifacts/
+automation/reports/
+.pytest_cache/
+.test-tmp/
+pytest-cache-files-*/
+htmlcov/
+.coverage
+*.core
+core.*
+*.save
+*.bak
 clab-*/
 **/clab-*/
 *.qcow2

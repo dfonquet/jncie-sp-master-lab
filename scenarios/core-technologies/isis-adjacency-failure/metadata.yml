@@ -1,0 +1,12 @@
+id: CORE-ISIS-001
+title: Diagnose an IS-IS adjacency failure
+domain: Core Technologies
+objectives: [IS-IS adjacency formation and troubleshooting]
+difficulty: foundational
+estimated_minutes: 30
+profile: daily
+baseline: isis
+logical_roles: []
+prerequisites: [dual-stack addressing]
+status: Implemented
+runtime_validated: false

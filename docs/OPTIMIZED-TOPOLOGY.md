@@ -1,6 +1,6 @@
 # Resource-Optimized JNCIE-SP Topology
 
-This is the recommended daily-study profile: ten vMX routers, eighteen
+This is the extended path-diversity profile: ten vMX routers, eighteen
 point-to-point links, dual-stack addressing, and an IS-IS Level 2 baseline.
 
 ```mermaid
@@ -34,8 +34,9 @@ flowchart TB
   access, VPLS, EVPN, interprovider, and failure exercises.
 - Two dual-homed RR routers support route-reflection and control-plane
   resiliency exercises without preconfiguring BGP.
-- Ten vMX instances consume roughly 50 GiB in steady state on the validated
-  host, leaving operating margin for automation and observability tools.
+- Earlier local measurements showed ten healthy vMX instances could consume
+  about 45 GiB and sustain substantial CPU load. Re-measure after image or host
+  changes; use the daily profile for routine work.
 
 ## Virtual expansion instead of more vMX
 

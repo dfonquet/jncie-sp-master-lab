@@ -1,0 +1,12 @@
+id: CORE-BGP-AUTH-001
+title: Resolve a BGP authentication mismatch
+domain: Core Technologies
+objectives: [BGP session security]
+difficulty: foundational
+estimated_minutes: 25
+profile: daily
+baseline: isis
+logical_roles: [Internet gateway]
+prerequisites: [BGP]
+status: Implemented
+runtime_validated: false

@@ -40,3 +40,6 @@ attachment, reducing steady CPU pressure by roughly two vMX instances.
 
 Use `topology/jncie-sp-optimized.clab.yml` when a fourth P/PE pair is materially
 useful, and never run both profiles simultaneously.
+
+The generated topology also includes AUTO1 on the management network; it does
+not consume any of the thirteen provider data-plane links.

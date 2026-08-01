@@ -1,0 +1,12 @@
+id: CORE-RIB-GROUP-001
+title: Share selected routes with a RIB group
+domain: Core Technologies
+objectives: [RIB groups]
+difficulty: foundational
+estimated_minutes: 35
+profile: daily
+baseline: isis
+logical_roles: [Customer A, Internet gateway]
+prerequisites: [routing instances]
+status: Implemented
+runtime_validated: false
