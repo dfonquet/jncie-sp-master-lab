@@ -66,6 +66,12 @@ topology:
       mgmt-ipv4: 10.204.253.122
       startup-config: ../configs/base/RR2.set
       startup-delay: 585
+    AUTO1:
+      kind: linux
+      image: jncie-sp-automation:1.0
+      mgmt-ipv4: 10.204.253.10
+      binds:
+        - ../:/workspace/jncie-sp-master
 
   links:
     - endpoints: ["P1:eth1", "P2:eth1"]

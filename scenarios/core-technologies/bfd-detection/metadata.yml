@@ -1,0 +1,12 @@
+id: CORE-BFD-001
+title: Implement and verify BFD failure detection
+domain: Core Technologies
+objectives: [BFD]
+difficulty: foundational
+estimated_minutes: 25
+profile: optimized
+baseline: isis
+logical_roles: []
+prerequisites: [IS-IS]
+status: Implemented
+runtime_validated: false

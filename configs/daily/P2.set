@@ -1,4 +1,6 @@
 set system host-name P2
+set system services ssh
+set system services netconf ssh
 set routing-options router-id 10.255.0.2
 set interfaces lo0 unit 0 description "P ROUTER-ID"
 set interfaces lo0 unit 0 family inet address 10.255.0.2/32

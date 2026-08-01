@@ -1,6 +1,7 @@
 # JNCIE-SP Master Topology
 
-The master profile contains fourteen Juniper vMX routers and twenty-five
+The master profile contains fourteen Juniper vMX routers, AUTO1 on the
+management network, and twenty-five
 point-to-point links. It intentionally provides only dual-stack addressing and
 a single IS-IS Level 2 underlay. All advanced service-provider technologies
 remain student work.
@@ -42,7 +43,7 @@ flowchart TB
 - Three higher-metric chords provide alternate paths and useful metric and
   convergence exercises without forcing an artificial full mesh.
 - Every PE is dual-homed to adjacent P routers.
-- Each future route reflector has two physically diverse underlay paths.
+- Each RR candidate has two physically diverse underlay paths.
 - RR nodes participate only in the IS-IS base. No BGP role is preconfigured.
 - `/31` and `/127` point-to-point addressing follows operationally efficient
   provider practice.

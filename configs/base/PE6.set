@@ -1,4 +1,6 @@
 set system host-name PE6
+set system services ssh
+set system services netconf ssh
 set routing-options router-id 10.255.0.16
 set interfaces lo0 unit 0 description "PE ROUTER-ID"
 set interfaces lo0 unit 0 family inet address 10.255.0.16/32

@@ -1,17 +1,8 @@
-# Master Lab Addressing Plan
+# Master Profile Addressing Plan
 
-Generated from `inventory/nodes.csv` and `inventory/links.csv`. Do not edit generated configs directly.
+> Generated from `inventory/nodes.csv` and `inventory/links.csv`. Do not edit this artifact manually.
 
-## Infrastructure blocks
-
-| Function | Prefix | Rationale |
-| --- | --- | --- |
-| Management | 10.204.253.0/24 | Out-of-band Containerlab access |
-| IPv4 loopbacks | 10.255.0.0/24 | Stable router IDs and protocol endpoints |
-| IPv4 P2P | 10.0.0.0/8 sliced into /31 | Address-efficient RFC 3021 links |
-| IPv6 loopbacks | 2001:db8:500:abcd::/64 sliced into /128 | Documentation-only infrastructure IDs |
-| IPv6 P2P | 2001:db8:1000::/48 sliced into /127 | RFC 6164 point-to-point links |
-| IS-IS area | 49.0001 | Single Level 2 provider domain |
+Baseline: `isis`. Management network: `10.204.253.0/24`.
 
 ## Nodes
 
@@ -35,7 +26,7 @@ Generated from `inventory/nodes.csv` and `inventory/links.csv`. Do not edit gene
 ## Links
 
 | ID | Purpose | Endpoint A | IPv4 A | IPv6 A | Endpoint B | IPv4 B | IPv6 B | Metric |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- | ---: |
 | 1 | CORE-RING | P1 ge-0/0/1 | 10.0.1.0/31 | 2001:db8:1000:1::/127 | P2 ge-0/0/1 | 10.0.1.1/31 | 2001:db8:1000:1::1/127 | 10 |
 | 2 | CORE-RING | P2 ge-0/0/2 | 10.0.2.0/31 | 2001:db8:1000:2::/127 | P3 ge-0/0/1 | 10.0.2.1/31 | 2001:db8:1000:2::1/127 | 10 |
 | 3 | CORE-RING | P3 ge-0/0/2 | 10.0.3.0/31 | 2001:db8:1000:3::/127 | P4 ge-0/0/1 | 10.0.3.1/31 | 2001:db8:1000:3::1/127 | 10 |
