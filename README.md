@@ -183,7 +183,10 @@ submit generated artifacts with their Source-of-Truth change. See
 
 ## License and legal disclaimer
 
-Project code and documentation use the [MIT License](LICENSE). Juniper and vMX
-are trademarks or products of their respective owner and remain governed by
-their license terms. This independent project is not affiliated with, endorsed
-by or representative of Juniper's confidential examination environment.
+Original repository content is published under the [Creative Commons
+Attribution 4.0 International License](LICENSE). Juniper software, Junos OS,
+vMX images, vendor documentation, trademarks and certification exam content
+are excluded and remain subject to their respective owners and license terms.
+This independent project is not affiliated with, sponsored by, or endorsed by
+Juniper Networks and does not represent its confidential examination
+environment.
