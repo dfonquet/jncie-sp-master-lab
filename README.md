@@ -35,6 +35,8 @@ flowchart LR
 
 See [physical and logical topology](docs/NETWORK-TOPOLOGY.md).
 
+![JNCIE-SP Master physical topology](docs/assets/jncie-sp-master-topology.svg)
+
 ## Supported profiles
 
 | Profile | vMX nodes | P | PE | RR | Physical links | AUTO1 | Intended use |
