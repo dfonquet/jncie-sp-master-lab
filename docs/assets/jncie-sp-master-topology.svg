@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1050" viewBox="0 0 1600 1050" role="img" aria-labelledby="title desc">
+  <title id="title">JNCIE-SP JPR-962 Master Lab topology</title>
+  <desc id="desc">Fourteen vMX routers, AUTO1, six-router provider core, six dual-homed provider edges, and two route-reflector candidates.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f8fafc}.panel{fill:#fff;stroke:#cbd5e1;stroke-width:2;stroke-dasharray:9 8}.title{font:700 34px Arial;fill:#0f172a}.subtitle{font:17px Arial;fill:#475569}.section{font:700 20px Arial;fill:#334155}.node-title{font:700 20px Arial;fill:#0f172a;text-anchor:middle}.role{font:13px Arial;fill:#475569;text-anchor:middle}.ip{font:12px monospace;fill:#475569;text-anchor:middle}.p{fill:#dbeafe;stroke:#2563eb;stroke-width:3}.pe{fill:#cffafe;stroke:#0891b2;stroke-width:3}.rr{fill:#f3e8ff;stroke:#9333ea;stroke-width:3}.auto{fill:#e2e8f0;stroke:#475569;stroke-width:3}.mgmt{fill:#f1f5f9;stroke:#94a3b8;stroke-width:2}.ring{stroke:#2563eb;stroke-width:5;fill:none}.chord{stroke:#db2777;stroke-width:4;stroke-dasharray:11 8;fill:none}.uplink{stroke:#0891b2;stroke-width:3;fill:none}.rrlink{stroke:#9333ea;stroke-width:3;fill:none}.mgmtlink{stroke:#64748b;stroke-width:2;stroke-dasharray:7 7;fill:none}.legend{font:14px Arial;fill:#334155}.badge{fill:#dcfce7;stroke:#16a34a;stroke-width:2}.badge-text{font:700 14px Arial;fill:#166534}.source{font:13px Arial;fill:#64748b}
+    </style>
+  </defs>
+  <rect class="bg" width="1600" height="1050"/>
+  <text class="title" x="55" y="52">JNCIE-SP JPR-962 Master Study Lab</text>
+  <text class="subtitle" x="55" y="82">14 vMX routers | 6 P + 6 PE + 2 RR candidates | AUTO1 | 25 physical links | deterministic dual-stack IS-IS baseline</text>
+  <rect class="badge" x="1210" y="28" rx="14" width="335" height="66"/>
+  <text class="badge-text" x="1230" y="55">✓ Static validation: daily / optimized / master</text>
+  <text class="badge-text" x="1230" y="78">Runtime acceptance: pending local vMX deployment</text>
+
+  <rect class="panel" x="40" y="110" rx="22" width="1520" height="150"/>
+  <text class="section" x="65" y="140">Management and control plane</text>
+  <line class="mgmtlink" x1="240" y1="195" x2="410" y2="195"/>
+  <rect class="auto" x="70" y="155" rx="15" width="170" height="78"/>
+  <text class="node-title" x="155" y="184">AUTO1</text><text class="role" x="155" y="205">AUTOMATION</text><text class="ip" x="155" y="222">10.204.253.10</text>
+  <rect class="mgmt" x="410" y="165" rx="28" width="225" height="58"/>
+  <text class="role" x="522" y="190">Management network</text><text class="ip" x="522" y="211">10.204.253.0/24</text>
+  <rect class="rr" x="820" y="150" rx="15" width="185" height="82"/>
+  <text class="node-title" x="912" y="180">RR1</text><text class="role" x="912" y="202">RR CANDIDATE</text><text class="ip" x="912" y="220">10.204.253.121</text>
+  <rect class="rr" x="1200" y="150" rx="15" width="185" height="82"/>
+  <text class="node-title" x="1292" y="180">RR2</text><text class="role" x="1292" y="202">RR CANDIDATE</text><text class="ip" x="1292" y="220">10.204.253.122</text>
+
+  <rect class="panel" x="40" y="280" rx="22" width="1520" height="400"/>
+  <text class="section" x="65" y="315">Provider core · IS-IS Level 2 · IPv4/IPv6 · student-built MPLS / RSVP / LDP / SR-MPLS</text>
+
+  <!-- RR uplinks -->
+  <line class="rrlink" x1="880" y1="232" x2="245" y2="410"/><line class="rrlink" x1="950" y1="232" x2="985" y2="540"/>
+  <line class="rrlink" x1="1250" y1="232" x2="745" y2="410"/><line class="rrlink" x1="1340" y1="232" x2="1235" y2="540"/>
+
+  <!-- Core ring -->
+  <path class="ring" d="M245 410 L495 540 L745 410 L985 540 L1235 410 L1460 540 L245 410"/>
+  <!-- Higher metric chords -->
+  <line class="chord" x1="245" y1="410" x2="985" y2="540"/>
+  <line class="chord" x1="495" y1="540" x2="1235" y2="410"/>
+  <line class="chord" x1="745" y1="410" x2="1460" y2="540"/>
+
+  <!-- P nodes -->
+  <g><rect class="p" x="165" y="365" rx="15" width="160" height="90"/><text class="node-title" x="245" y="398">P1</text><text class="role" x="245" y="420">P</text><text class="ip" x="245" y="441">10.204.253.101</text></g>
+  <g><rect class="p" x="415" y="495" rx="15" width="160" height="90"/><text class="node-title" x="495" y="528">P2</text><text class="role" x="495" y="550">P</text><text class="ip" x="495" y="571">10.204.253.102</text></g>
+  <g><rect class="p" x="665" y="365" rx="15" width="160" height="90"/><text class="node-title" x="745" y="398">P3</text><text class="role" x="745" y="420">P</text><text class="ip" x="745" y="441">10.204.253.103</text></g>
+  <g><rect class="p" x="905" y="495" rx="15" width="160" height="90"/><text class="node-title" x="985" y="528">P4</text><text class="role" x="985" y="550">P</text><text class="ip" x="985" y="571">10.204.253.104</text></g>
+  <g><rect class="p" x="1155" y="365" rx="15" width="160" height="90"/><text class="node-title" x="1235" y="398">P5</text><text class="role" x="1235" y="420">P</text><text class="ip" x="1235" y="441">10.204.253.105</text></g>
+  <g><rect class="p" x="1380" y="495" rx="15" width="160" height="90"/><text class="node-title" x="1460" y="528">P6</text><text class="role" x="1460" y="550">P</text><text class="ip" x="1460" y="571">10.204.253.106</text></g>
+
+  <rect class="panel" x="40" y="700" rx="22" width="1520" height="230"/>
+  <text class="section" x="65" y="735">Provider edge · six dual-homed PE routers · scenario-driven L3VPN / VPLS / EVPN / interprovider practice</text>
+  <!-- PE uplinks -->
+  <line class="uplink" x1="170" y1="815" x2="245" y2="455"/><line class="uplink" x1="170" y1="815" x2="495" y2="585"/>
+  <line class="uplink" x1="420" y1="815" x2="495" y2="585"/><line class="uplink" x1="420" y1="815" x2="745" y2="455"/>
+  <line class="uplink" x1="670" y1="815" x2="745" y2="455"/><line class="uplink" x1="670" y1="815" x2="985" y2="585"/>
+  <line class="uplink" x1="920" y1="815" x2="985" y2="585"/><line class="uplink" x1="920" y1="815" x2="1235" y2="455"/>
+  <line class="uplink" x1="1170" y1="815" x2="1235" y2="455"/><line class="uplink" x1="1170" y1="815" x2="1460" y2="585"/>
+  <line class="uplink" x1="1420" y1="815" x2="1460" y2="585"/><line class="uplink" x1="1420" y1="815" x2="245" y2="455"/>
+
+  <g><rect class="pe" x="95" y="790" rx="15" width="150" height="88"/><text class="node-title" x="170" y="822">PE1</text><text class="role" x="170" y="844">PE</text><text class="ip" x="170" y="864">10.204.253.111</text></g>
+  <g><rect class="pe" x="345" y="790" rx="15" width="150" height="88"/><text class="node-title" x="420" y="822">PE2</text><text class="role" x="420" y="844">PE</text><text class="ip" x="420" y="864">10.204.253.112</text></g>
+  <g><rect class="pe" x="595" y="790" rx="15" width="150" height="88"/><text class="node-title" x="670" y="822">PE3</text><text class="role" x="670" y="844">PE</text><text class="ip" x="670" y="864">10.204.253.113</text></g>
+  <g><rect class="pe" x="845" y="790" rx="15" width="150" height="88"/><text class="node-title" x="920" y="822">PE4</text><text class="role" x="920" y="844">PE</text><text class="ip" x="920" y="864">10.204.253.114</text></g>
+  <g><rect class="pe" x="1095" y="790" rx="15" width="150" height="88"/><text class="node-title" x="1170" y="822">PE5</text><text class="role" x="1170" y="844">PE</text><text class="ip" x="1170" y="864">10.204.253.115</text></g>
+  <g><rect class="pe" x="1345" y="790" rx="15" width="150" height="88"/><text class="node-title" x="1420" y="822">PE6</text><text class="role" x="1420" y="844">PE</text><text class="ip" x="1420" y="864">10.204.253.116</text></g>
+
+  <line class="ring" x1="130" y1="970" x2="190" y2="970"/><text class="legend" x="205" y="976">Core ring · metric 10</text>
+  <line class="chord" x1="400" y1="970" x2="460" y2="970"/><text class="legend" x="475" y="976">Core chord · metric 20</text>
+  <line class="uplink" x1="700" y1="970" x2="760" y2="970"/><text class="legend" x="775" y="976">PE uplink</text>
+  <line class="rrlink" x1="930" y1="970" x2="990" y2="970"/><text class="legend" x="1005" y="976">RR underlay attachment</text>
+  <line class="mgmtlink" x1="1260" y1="970" x2="1320" y2="970"/><text class="legend" x="1335" y="976">Management</text>
+  <text class="source" x="55" y="1025">Source of Truth: inventory/nodes.csv + inventory/links.csv · generated architecture documented in tools/build_lab.py</text>
+</svg>
